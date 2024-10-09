@@ -1,7 +1,7 @@
 package com.example.PersonalInfoAPI.controllers;
 
 import com.example.PersonalInfoAPI.services.PersonServices;
-import model.Person;
+import com.example.PersonalInfoAPI.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +26,7 @@ public class PersonController {
     @RequestMapping(value = "{id}",
             method= RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person findbyId(@PathVariable(value = "id")String id) throws Exception{
+    public Person findbyId(@PathVariable(value = "id")Long id) throws Exception{
         return service.findbyid(id);
     }
 
@@ -46,10 +46,7 @@ public class PersonController {
 
     @RequestMapping(value = "{id}",
             method= RequestMethod.DELETE)
-    public void delete(@PathVariable(value = "id")String id) throws Exception{
+    public void delete(@PathVariable(value = "id")Long id) throws Exception{
          service.delete(id);
     }
-
-
-
 }
