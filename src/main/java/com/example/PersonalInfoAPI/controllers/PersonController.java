@@ -15,7 +15,6 @@ public class PersonController {
 
     @Autowired
     private PersonServices service;
-    //private PersonServices service = new PersonServices(); <-- Before Autowired
 
     @RequestMapping(method= RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
