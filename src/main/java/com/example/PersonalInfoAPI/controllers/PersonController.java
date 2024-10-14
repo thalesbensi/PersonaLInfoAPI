@@ -1,7 +1,8 @@
 package com.example.PersonalInfoAPI.controllers;
 
+
+import com.example.PersonalInfoAPI.data.vo.v1.PersonVO;
 import com.example.PersonalInfoAPI.services.PersonServices;
-import com.example.PersonalInfoAPI.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import java.util.List;
 public class PersonController {
 
     @Autowired
-    private PersonServices service;
+    public PersonServices service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List findAll(){
@@ -24,19 +25,19 @@ public class PersonController {
 
     @GetMapping(value = "{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person findbyId(@PathVariable(value = "id")Long id) throws Exception{
-        return service.findbyid(id);
+    public PersonVO findbyId(@PathVariable(value = "id")Long id) throws Exception{
+        return service.findById(id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person create (@RequestBody Person person){
+    public PersonVO create (@RequestBody PersonVO person){
         return service.create(person);
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person update (@RequestBody Person person){
+    public PersonVO update (@RequestBody PersonVO person){
         return service.update(person);
     }
 
