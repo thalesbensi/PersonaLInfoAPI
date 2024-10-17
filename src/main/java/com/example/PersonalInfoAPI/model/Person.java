@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "person")
 public class Person implements Serializable {
